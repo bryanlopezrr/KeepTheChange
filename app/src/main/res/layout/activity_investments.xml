@@ -6,7 +6,67 @@
     android:layout_height="match_parent">
 
 
-<RelativeLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="216dp">
+
+
+        <TextView
+            android:id="@+id/textViewRiskLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RISK LEVEL"
+            android:fontFamily="sans-serif-medium"
+            android:textSize="28dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"/>
+
+        <Button
+            android:id="@+id/buttonLow"
+            android:layout_below="@id/textViewRiskLevel"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
+            android:layout_width="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_toLeftOf="@id/buttonMed"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_centerHorizontal="true"
+            android:text="Low" />
+
+        <Button
+            android:id="@+id/buttonMed"
+            android:layout_below="@id/textViewRiskLevel"
+            android:layout_marginTop="10dp"
+            android:textColor="#ffff"
+            android:layout_width="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="3dp"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+
+        <Button
+            android:id="@+id/buttonHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffff"
+            android:background="@color/colorPrimaryDark"
+            android:layout_toRightOf="@id/buttonMed"
+            android:layout_below="@id/textViewRiskLevel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="High" />
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 

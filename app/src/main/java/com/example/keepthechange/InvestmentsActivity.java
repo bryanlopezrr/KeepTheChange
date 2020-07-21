@@ -18,8 +18,6 @@ public class InvestmentsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_investments);
 
 
-
-
         BottomNavigationView bottomNavBar = findViewById(R.id.navigationBar);
         Menu menu = bottomNavBar.getMenu();
         MenuItem menuItem = menu.getItem(2);
@@ -31,17 +29,17 @@ public class InvestmentsActivity extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
 
                 switch (menuItem.getItemId()) {
-                    case R.id.nav_reports:
+                    case R.id.nav_home:
 //                        Toast.makeText(MeditateActivity.this, "Reports!!!!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(InvestmentsActivity.this, HomeActivity.class);
                         startActivity(intent);
                         break;
-                    case R.id.nav_meditate:
+                    case R.id.nav_investments:
 //                        Toast.makeText(MeditateActivity.this, "Meditate!!!!", Toast.LENGTH_LONG).show();
                         Intent intent1 = new Intent(InvestmentsActivity.this, InvestmentsActivity.class);
                         startActivity(intent1);
                         break;
-                    case R.id.nav_reminder:
+                    case R.id.nav_account:
 //                        Toast.makeText(MeditateActivity.this, "Monitor!!!!", Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(InvestmentsActivity.this, AccountActivity.class);
                         startActivity(intent2);
