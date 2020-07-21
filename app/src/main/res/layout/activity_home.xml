@@ -1,12 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/buttonSwipe"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SWIPE" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/buttonSwipe"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimary"
+            android:text="SWIPE"
+            android:textColor="#ffff" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationBar"
+            android:layout_marginTop="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/nav_items"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="#fff"
+            app:itemTextColor="#000">
+
+            <!--            app:itemBackground=""-->
+            <!--            app:itemIconTint="@color/nav_item_colors"-->
+            <!--            app:itemTextColor="@color/nav_item_colors"-->
+            <!--            app:menu="@menu/nav_items"--> >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        </RelativeLayout>
 
 </LinearLayout>

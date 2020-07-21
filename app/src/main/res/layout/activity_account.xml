@@ -23,22 +23,58 @@
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/profilePic" 
-            android:text="First Name - Last Name" />
+            android:layout_below="@id/profilePic"
+            android:layout_marginTop="30dp"
+            android:text="First Name - Last Name"
+            android:layout_centerHorizontal="true" />
 
         <TextView
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/textViewName"
             android:id="@+id/textViewMemberSince"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Member since: xx/xx/xxxx" />
+            android:text="Member since: xx/xx/xxxx"
+            android:layout_centerHorizontal="true" />
 
         <Button
+            android:layout_below="@id/textViewMemberSince"
+            android:layout_marginTop="35dp"
             android:id="@+id/buttonLogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Logout" />
+            android:text="Logout"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/navigationBar"
+            android:layout_marginTop="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/nav_items"
+            app:itemBackground="@color/colorPrimary"
+            app:itemIconTint="#fff"
+            app:itemTextColor="#000">
+
+            <!--            app:itemBackground=""-->
+            <!--            app:itemIconTint="@color/nav_item_colors"-->
+            <!--            app:itemTextColor="@color/nav_item_colors"-->
+            <!--            app:menu="@menu/nav_items"--> >
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
     </RelativeLayout>
+
+
 
 </LinearLayout>
