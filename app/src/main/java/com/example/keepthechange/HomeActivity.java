@@ -2,6 +2,7 @@ package com.example.keepthechange;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -93,6 +96,23 @@ public class HomeActivity extends AppCompatActivity {
 //         float[] cost = {2.5, 1.37, 4.89, 10.99};
             Random randomCost = new Random(); // creating Random object
             float totalCost = randomCost.nextFloat() + (float) randomNum;
+
+            double investedAmount = Math.ceil(totalCost) - totalCost;
+
+            Double toBeTruncated = new Double(investedAmount);
+
+            Double truncatedDouble = BigDecimal.valueOf(toBeTruncated)
+                    .setScale(2, RoundingMode.HALF_UP)
+                    .doubleValue();
+
+
+            //Right here I will need to capture the value and send it to the cloud db for easy access and manipulation
+
+            Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_SHORT);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+            toast.show();
+
+
             String cost = String.valueOf(String.format("%.2f", totalCost));
             return (items[randomNum] + " \t \t \t \t \t \t  " +  cost);
         }

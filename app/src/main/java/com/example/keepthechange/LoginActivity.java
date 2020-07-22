@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void login(View view){
         Toast toast = Toast.makeText(LoginActivity.this, "Welcome back !", Toast.LENGTH_SHORT);
-                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 1200);
+                            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
                             toast.show();
 
         Intent intent = new Intent( LoginActivity.this, HomeActivity.class);
