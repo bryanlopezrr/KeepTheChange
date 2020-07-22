@@ -16,7 +16,7 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/mybutton"
             android:text="SWIPE"
             android:textColor="#ffff"
             android:onClick="randomTransaction"/>

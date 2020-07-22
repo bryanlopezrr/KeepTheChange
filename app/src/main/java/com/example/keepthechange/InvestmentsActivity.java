@@ -17,6 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class InvestmentsActivity extends AppCompatActivity {
 
@@ -70,6 +71,7 @@ public class InvestmentsActivity extends AppCompatActivity {
 
 
     }
+
 
 
     public void setUpChart(){
