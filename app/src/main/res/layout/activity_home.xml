@@ -18,8 +18,33 @@
             android:layout_marginTop="100dp"
             android:background="@color/colorPrimaryDark"
             android:text="SWIPE"
-            android:textColor="#ffff" />
+            android:textColor="#ffff"
+            android:onClick="randomTransaction"/>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="380dp"
+    android:layout_marginTop="150dp"
+    android:layout_centerHorizontal="true"
+    >
+        <LinearLayout
+            android:id="@+id/linearLayoutTransaction"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp">
+    <!--            android:layout_below="@id/buttonSwipe"-->
+    <!--            >-->
 
+        </LinearLayout>
+
+</ScrollView>
+<!--        <EditText-->
+<!--            android:id="@+id/editTextTransaction"-->
+<!--            android:layout_width="fill_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/buttonSwipe"-->
+<!--            android:layout_marginTop="20dp" />-->
 
     </RelativeLayout>
 

@@ -8,14 +8,32 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Pie;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InvestmentsActivity extends AppCompatActivity {
+
+
+    public AnyChartView anyChartView;
+
+    public String[] account = {"Cash","Investments"};
+    public int[] amount = {3000, 200};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investments);
+        anyChartView = findViewById(R.id.any_chart_view);
+
+        setUpChart();
 
 
         BottomNavigationView bottomNavBar = findViewById(R.id.navigationBar);
@@ -48,6 +66,23 @@ public class InvestmentsActivity extends AppCompatActivity {
             }
 
         });
+
+
+
+    }
+
+
+    public void setUpChart(){
+
+        Pie pie = AnyChart.pie();
+        List<DataEntry> dataEntries = new ArrayList<>();
+
+        for (int i = 0; i < account.length; i++){
+            dataEntries.add(new ValueDataEntry(account[i], amount[i]));
+        }
+
+        pie.data(dataEntries);
+        anyChartView.setChart(pie);
 
     }
 }
