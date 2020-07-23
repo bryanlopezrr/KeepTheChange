@@ -41,7 +41,8 @@
             android:layout_below="@id/textViewMemberSince"
             android:layout_marginTop="35dp"
             android:id="@+id/buttonLogout"
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
+            android:fontFamily="sans-serif-condensed"
             android:background="@drawable/logout_button_style"
             android:textColor="#ffff"
             android:onClick="logout"
@@ -66,7 +67,7 @@
             app:menu="@menu/nav_items"
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="#fff"
-            app:itemTextColor="#000">
+            app:itemTextColor="#fff">
 
             <!--            app:itemBackground=""-->
             <!--            app:itemIconTint="@color/nav_item_colors"-->

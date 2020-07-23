@@ -16,6 +16,7 @@
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="100dp"
+            android:fontFamily="sans-serif-condensed"
             android:background="@drawable/mybutton"
             android:text="SWIPE"
             android:textColor="#ffff"
@@ -64,6 +65,13 @@
             app:itemBackground="@color/colorPrimary"
             app:itemIconTint="#fff"
             app:itemTextColor="#fff">
+
+<!--            keepthechangekey-->
+
+
+
+
+
 
             <!--            app:itemBackground=""-->
             <!--            app:itemIconTint="@color/nav_item_colors"-->

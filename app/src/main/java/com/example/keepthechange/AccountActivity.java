@@ -12,7 +12,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amazonaws.mobile.auth.core.IdentityManager;
+import com.amazonaws.mobile.client.AWSMobileClient;
+import com.amazonaws.mobile.client.Callback;
+import com.amazonaws.mobile.client.SignInUIOptions;
+import com.amazonaws.mobile.client.UserStateDetails;
+import com.amazonaws.mobile.config.AWSConfiguration;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+
+
 
 public class AccountActivity extends AppCompatActivity {
 
@@ -20,6 +30,7 @@ public class AccountActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
 
         BottomNavigationView bottomNavBar = findViewById(R.id.navigationBar);
         Menu menu = bottomNavBar.getMenu();
@@ -50,17 +61,22 @@ public class AccountActivity extends AppCompatActivity {
                 }
             }
 
+
         });
-
-
     }
 
-
     public void logout(View view){
-        Toast toast = Toast.makeText(AccountActivity.this, "Goodbye !", Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 1350);
-        toast.show();
 
+        AWSMobileClient.getInstance().signOut();
+
+//        switchTo(LoginActivity.class);
+
+        IdentityManager.getDefaultIdentityManager().signOut();
+//
+//        Toast toast = Toast.makeText(AccountActivity.this, "Goodbye !", Toast.LENGTH_SHORT);
+//        toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 1350);
+//        toast.show();
+//
         Intent intent = new Intent( AccountActivity.this, LoginActivity.class);
         startActivity(intent);
         finish();

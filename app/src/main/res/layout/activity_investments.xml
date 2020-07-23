@@ -103,7 +103,7 @@
         app:menu="@menu/nav_items"
         app:itemBackground="@color/colorPrimary"
         app:itemIconTint="#fff"
-        app:itemTextColor="#000">
+        app:itemTextColor="#fff">
 
         <!--            app:itemBackground=""-->
         <!--            app:itemIconTint="@color/nav_item_colors"-->
