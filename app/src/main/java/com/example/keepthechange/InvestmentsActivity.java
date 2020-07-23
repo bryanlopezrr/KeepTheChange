@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class InvestmentsActivity extends AppCompatActivity {
 
     public String[] account = {"Cash","Investments"};
     public int[] amount = {3000, 200};
+
 
 
     @Override
@@ -69,6 +72,15 @@ public class InvestmentsActivity extends AppCompatActivity {
         });
 
 
+
+    }
+
+
+    public void changeInvestmentRisk(View v){
+
+        Toast toast = Toast.makeText(InvestmentsActivity.this, "Risk Level Updated", Toast.LENGTH_SHORT);
+        toast.show();
+        //add other logic to update the backend
 
     }
 

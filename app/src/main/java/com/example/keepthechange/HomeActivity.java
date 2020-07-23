@@ -3,6 +3,7 @@ package com.example.keepthechange;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -112,13 +113,18 @@ public class HomeActivity extends AppCompatActivity {
 
             //Right here I will need to capture the value and send it to the cloud db for easy access and manipulation
 
-            Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_SHORT);
+
+
+//            Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
+
+
+            Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
 //            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
 
 
             String cost = String.valueOf(String.format("%.2f", totalCost));
-            if(items[randomNum] == " "){
+            if((items[randomNum] + cost ) == ""){
                 items[randomNum] = "Miscellaneous" + cost;
             }
 
@@ -155,5 +161,8 @@ public class HomeActivity extends AppCompatActivity {
 
         whatColortoShade++;
         return textView;
+    }
+
+    private class LayourInflater {
     }
 }
