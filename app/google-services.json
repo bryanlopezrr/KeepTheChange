@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "3765042881",
+    "firebase_url": "https://keepthechange-56407.firebaseio.com",
+    "project_id": "keepthechange-56407",
+    "storage_bucket": "keepthechange-56407.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3765042881:android:72b1910807c418735d1e40",
+        "android_client_info": {
+          "package_name": "com.example.keepthechange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3765042881-mg3tkjo4ojthfusqpc96i2nnsaljeq49.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.keepthechange",
+            "certificate_hash": "11be553a9f131de963c65ee211072736b72c5027"
+          }
+        },
+        {
+          "client_id": "3765042881-rubnuc9f1cafueppv7t2759j0ni8dpqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA7aWVdjzAokDavllD1_ovyQGVA_Os2RU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3765042881-rubnuc9f1cafueppv7t2759j0ni8dpqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

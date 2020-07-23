@@ -2,6 +2,7 @@ package com.example.keepthechange;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -18,11 +19,18 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationDetails;
+import com.anychart.core.grids.Map;
 import com.anychart.scales.Linear;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -34,6 +42,41 @@ public class HomeActivity extends AppCompatActivity {
     private Button mButton;
     int whatColortoShade = 0;
 
+
+    DatabaseReference database;
+
+    public void readDB() {
+        database = FirebaseDatabase.getInstance().getReference("transaction");
+        // Read from the database
+        database.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange (DataSnapshot dataSnapshot){
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    if (dataSnapshot.getValue() != null) {
+
+                        {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                String r = "" + snapshot.getValue();
+                                TextView transactionRead = createNewTextView(r);
+                                mLayout.addView(transactionRead);
+                            }
+                        }
+                    }
+
+                }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("TAG", "Failed to read value.", error.toException());
+            }
+        });
+
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +86,10 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu = bottomNavBar.getMenu();
         MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
+
+
+        readDB();
+//
 
             mLayout = (LinearLayout) findViewById(R.id.linearLayoutTransaction);
 //            mEditText = (EditText) findViewById(R.id.editTextTransaction);
@@ -82,11 +129,20 @@ public class HomeActivity extends AppCompatActivity {
     public void randomTransaction(View view) {
 
         String randomText = randomizer();
+
+        if(randomText == ""){
+            randomText = "Other" + "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t" +  "3.50";
+        }
+
         TextView newTransaction = createNewTextView(randomText);
+
+        String idDb = database.push().getKey();
+        String transaction = randomText;
+
+        database.child(idDb).setValue(transaction);
         mLayout.addView(newTransaction);
 
     }
-
 
     public String randomizer(){
         //This function will return a random string that has a transaction for a certain amount
@@ -110,26 +166,14 @@ public class HomeActivity extends AppCompatActivity {
                     .setScale(2, RoundingMode.HALF_UP)
                     .doubleValue();
 
-
             //Right here I will need to capture the value and send it to the cloud db for easy access and manipulation
-
-
-
-//            Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
-
+            //Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
 
             Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
-//            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
 
-
             String cost = String.valueOf(String.format("%.2f", totalCost));
-            if((items[randomNum] + cost ) == ""){
-                items[randomNum] = "Miscellaneous" + cost;
-            }
-
-
-            return (items[randomNum] + " \t \t \t \t \t \t \t \t  \t \t \t \t \t \t \t" +  cost);
+            return (items[randomNum] + "\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t" +  cost);
         }
         catch (Exception e){
             Toast toast = Toast.makeText(HomeActivity.this, "Oops, something went wrong!", Toast.LENGTH_LONG);
@@ -163,6 +207,5 @@ public class HomeActivity extends AppCompatActivity {
         return textView;
     }
 
-    private class LayourInflater {
-    }
+
 }

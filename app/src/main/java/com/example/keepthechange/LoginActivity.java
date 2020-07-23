@@ -99,6 +99,11 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 AWSMobileClient.getInstance().showSignIn(this,
                         SignInUIOptions.builder().nextActivity((HomeActivity.class)).build());
+
+                String username = AWSMobileClient.getInstance().getUsername();
+
+//                Toast toast = make
+
             }
             catch (Exception e){
 
