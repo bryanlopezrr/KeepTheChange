@@ -6,6 +6,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationDetails;
+import com.anychart.scales.Linear;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.math.BigDecimal;
@@ -28,6 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     private LinearLayout mLayout;
     private EditText mEditText;
     private Button mButton;
+    int whatColortoShade = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,6 @@ public class HomeActivity extends AppCompatActivity {
         Menu menu = bottomNavBar.getMenu();
         MenuItem menuItem = menu.getItem(2);
         menuItem.setChecked(true);
-
 
             mLayout = (LinearLayout) findViewById(R.id.linearLayoutTransaction);
 //            mEditText = (EditText) findViewById(R.id.editTextTransaction);
@@ -78,7 +81,8 @@ public class HomeActivity extends AppCompatActivity {
     public void randomTransaction(View view) {
 
         String randomText = randomizer();
-        mLayout.addView(createNewTextView(randomText));
+        TextView newTransaction = createNewTextView(randomText);
+        mLayout.addView(newTransaction);
 
     }
 
@@ -109,15 +113,20 @@ public class HomeActivity extends AppCompatActivity {
             //Right here I will need to capture the value and send it to the cloud db for easy access and manipulation
 
             Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
+//            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL, 0, 0);
             toast.show();
 
 
             String cost = String.valueOf(String.format("%.2f", totalCost));
-            return (items[randomNum] + " \t \t \t \t \t \t  " +  cost);
+            if(items[randomNum] == " "){
+                items[randomNum] = "Miscellaneous" + cost;
+            }
+
+
+            return (items[randomNum] + " \t \t \t \t \t \t \t \t  \t \t \t \t \t \t \t" +  cost);
         }
         catch (Exception e){
-            Toast toast = Toast.makeText(HomeActivity.this, "Oops, something went wrong!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(HomeActivity.this, "Oops, something went wrong!", Toast.LENGTH_LONG);
             return "";
         }
 
@@ -125,10 +134,26 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private TextView createNewTextView(String text) {
-        LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+
+        LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                                                LinearLayout.LayoutParams.WRAP_CONTENT);
         TextView textView = new TextView(this);
         textView.setLayoutParams(lparams);
         textView.setText(text);
+        textView.setTextSize(20);
+        textView.setGravity(Gravity.CENTER);
+
+
+        if((whatColortoShade % 2) == 0){
+
+            textView.setBackgroundColor(getResources().getColor(R.color.grayColor));
+        }
+        else{
+            textView.setBackgroundColor(getResources().getColor(R.color.whiteColor));
+        }
+
+        whatColortoShade++;
         return textView;
     }
 }
