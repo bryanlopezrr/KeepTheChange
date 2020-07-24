@@ -47,25 +47,12 @@ public class InvestmentsActivity extends AppCompatActivity {
     public String[] account = {"Cash","Investments"};
     public float[] amount = {25.6f,89.3f};
 
-//    List<Integer> amount = new ArrayList<>();
-
-
-    public int globalCash;
-    public int globalInvested;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_investments);
         anyChartView = findViewById(R.id.any_chart_view);
 
-
-//        percent.setText("7 - 10%"); //medium orange
-//        percent.setText("12 - 15%"); //high red
-
-//        changeInvestmentRisk();
-
-//        public void readDB() {
             database = FirebaseDatabase.getInstance().getReference("cash");
             // Read from the database
             database.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -80,9 +67,6 @@ public class InvestmentsActivity extends AppCompatActivity {
                                 String r = "" + snapshot.getValue();
                                 float value = Float.parseFloat(r);
                                 totalCash += value;
-//                                totalInvested = 6.37f;
-
-//                                Toast.makeText(InvestmentsActivity.this, String.valueOf(totalCash), Toast.LENGTH_LONG).show();
 
                             }
                         }
@@ -90,12 +74,6 @@ public class InvestmentsActivity extends AppCompatActivity {
                         TextView investedTV = findViewById(R.id.textViewInvested);
                         investedTV.setText(String.valueOf("Invested: " + totalInvested));
                         cashTV.setText(String.valueOf("Cash: " + totalCash));
-//
-//                        globalCash = (int) totalCash;
-//                        globalInvested = (int) totalInvested;
-
-//                        Toast toast = Toast.makeText(InvestmentsActivity.this, String.valueOf(globalCash), Toast.LENGTH_SHORT);
-//                        toast.show();
 
                     }
 
@@ -191,12 +169,6 @@ public class InvestmentsActivity extends AppCompatActivity {
 
 
     public void setUpChart(){
-
-//        amount.add(globalCash);
-//        amount.add(globalInvested);
-//
-//        Toast toast = Toast.makeText(InvestmentsActivity.this, String.valueOf(globalInvested), Toast.LENGTH_SHORT);
-//        toast.show();
 
 
         Pie pie = AnyChart.pie();

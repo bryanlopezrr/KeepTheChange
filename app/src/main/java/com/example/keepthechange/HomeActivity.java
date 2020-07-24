@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
         readDB();
-//
+
 
             mLayout = (LinearLayout) findViewById(R.id.linearLayoutTransaction);
 //            mEditText = (EditText) findViewById(R.id.editTextTransaction);
@@ -105,17 +105,14 @@ public class HomeActivity extends AppCompatActivity {
 
                 switch (menuItem.getItemId()) {
                     case R.id.nav_home:
-//                        Toast.makeText(MeditateActivity.this, "Reports!!!!", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.nav_investments:
-//                        Toast.makeText(MeditateActivity.this, "Meditate!!!!", Toast.LENGTH_LONG).show();
                         Intent intent1 = new Intent(HomeActivity.this, InvestmentsActivity.class);
                         startActivity(intent1);
                         break;
                     case R.id.nav_account:
-//                        Toast.makeText(MeditateActivity.this, "Monitor!!!!", Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(HomeActivity.this, AccountActivity.class);
                         startActivity(intent2);
                         break;
