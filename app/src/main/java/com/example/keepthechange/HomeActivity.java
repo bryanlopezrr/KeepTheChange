@@ -42,8 +42,8 @@ public class HomeActivity extends AppCompatActivity {
     private Button mButton;
     int whatColortoShade = 0;
 
-
     DatabaseReference database;
+
 
     public void readDB() {
         database = FirebaseDatabase.getInstance().getReference("transaction");
@@ -166,6 +166,8 @@ public class HomeActivity extends AppCompatActivity {
                     .setScale(2, RoundingMode.HALF_UP)
                     .doubleValue();
 
+            updateCash(truncatedDouble);
+
             //Right here I will need to capture the value and send it to the cloud db for easy access and manipulation
             //Toast toast = Toast.makeText(HomeActivity.this, "Invested amount: " + String.valueOf(truncatedDouble) + " ", Toast.LENGTH_LONG);
 
@@ -205,6 +207,22 @@ public class HomeActivity extends AppCompatActivity {
 
         whatColortoShade++;
         return textView;
+    }
+
+
+    public void updateCash(Double dvalue){
+        DatabaseReference cashTable;
+
+        cashTable = FirebaseDatabase.getInstance().getReference("cash");
+
+        String stringDouble = String.valueOf(dvalue);
+
+        String ceilNum = cashTable.push().getKey();
+//        String floatCash = ceilNum;
+
+        cashTable.child(ceilNum).setValue(stringDouble);
+
+
     }
 
 

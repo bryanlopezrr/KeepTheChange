@@ -25,7 +25,7 @@
             android:id="@+id/buttonLow"
             android:layout_below="@id/textViewRiskLevel"
             android:layout_marginTop="10dp"
-            android:onClick="changeInvestmentRisk"
+            android:onClick="changeInvestmentRisk1"
             android:textColor="#ffff"
             android:layout_width="wrap_content"
             android:background="@drawable/mybutton"
@@ -40,7 +40,7 @@
             android:layout_below="@id/textViewRiskLevel"
             android:layout_marginTop="10dp"
             android:textColor="#ffff"
-            android:onClick="changeInvestmentRisk"
+            android:onClick="changeInvestmentRisk2"
             android:layout_width="wrap_content"
             android:background="@drawable/mybutton"
             android:layout_centerHorizontal="true"
@@ -53,13 +53,51 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffff"
-            android:onClick="changeInvestmentRisk"
+            android:onClick="changeInvestmentRisk3"
             android:background="@drawable/mybutton"
             android:layout_toRightOf="@id/buttonMed"
             android:layout_below="@id/textViewRiskLevel"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:text="High" />
+
+        <TextView
+            android:id="@+id/textViewCash"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cash: " />
+
+        <TextView
+            android:layout_below="@id/textViewCash"
+            android:id="@+id/textViewInvested"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invested: " />
+
+        <TextView
+            android:layout_below="@id/textViewInvested"
+            android:id="@+id/textViewROR"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="7dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rate of Return:" />
+
+        <TextView
+            android:id="@+id/textViewRiskPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewInvested"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="-158dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/textViewROR"
+            android:layout_toRightOf="@id/textViewRiskLevel"
+            android:text="%" />
 
     </RelativeLayout>
 
